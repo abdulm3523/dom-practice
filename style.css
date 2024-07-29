@@ -88,3 +88,10 @@ form input{
 form select{
     width: 100% !important;
 }
+
+#error{
+    color: red;
+    font-weight: bold;
+    font-size: 11px;
+    margin-bottom: 5px;
+}

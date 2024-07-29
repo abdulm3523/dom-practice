@@ -210,6 +210,36 @@ form.addEventListener('submit',function(event){
 // Form Validation
 let formV = document.getElementById('formValidation')
 formV.addEventListener('submit',function(submit){
-    let formValue = [];
-    
+    submit.preventDefault()
+    let nameFiled = document.getElementById('nameF').value
+    let emailFiled = document.getElementById('emailF').value
+    let passFiled = document.getElementById('passF').value
+
+    let nameFiledT = document.getElementById('nameF').nextElementSibling
+    let emailFiledT = document.getElementById('emailF').nextElementSibling
+    let passFiledT = document.getElementById('passF').nextElementSibling
+
+    let isValid = true;
+    if(nameFiled == '' || /\d/.test(nameFiled)){
+        nameFiledT.innerHTML = 'Please filup the filed'
+        isValid = false;
+    }else{
+        console.log(nameFiled)
+        isValid = true;
+    }
+    if(emailFiled == '' || !emailFiled.includes("@")){
+        emailFiledT.innerHTML = 'Please provide valid email'
+        isValid = false;
+    }else{
+        console.log(emailFiled)
+        isValid = true;
+    }
+    if(passFiled == '' || passFiled.length < 8){
+        passFiledT.innerHTML = 'Password must be more then 8 included, small caps,number & capital cap'
+        isValid = false;
+    }else{
+        console.log(passFiled)
+        isValid = true;
+    }
+    this.reset()
 });
